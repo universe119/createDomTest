@@ -4,6 +4,7 @@ const data = ["title1", "title2", "title3"];
 
 let tags = "";
 
+// 배열을 반복돌면서 tags에 생성할 태그 문자열 쌓기
 data.forEach((el) => {
 	tags += `
     <article>
@@ -11,24 +12,20 @@ data.forEach((el) => {
     </article>
   `;
 });
-// console.log(tags);
+
+// section요소안에 최종적으로 DOM생성
 frame.innerHTML = tags;
 
-// append로 동적 DOM 생성
-// 기존 선택자 안쪽의 요소들을 유지하면서 뒤쪽에 새롭게 추가
-// append의 인수값으로는 문자값이 아닌 실제 ElementNode 형태로 전달
+// aside라는 엘리먼트 노드를 직접생성하고 클래스명, 텍스트 추가
 const asideEl = document.createElement("aside");
 asideEl.classList.add("modal");
 asideEl.innerText = "Modal";
 
-// 이것보단
-// const btnEl = document.createElement("button");
-// btnEl.innerText = "CLOSE";
-// asideEl.append(btnEl);
-// console.dir(asideEl);
-
+//aside요소 안쪽의 복잡한 자식 요소 구조는 innerHTML로 생성
 asideEl.innerHTML = `
+  <div class="con"></div>
   <button>CLOSE</button>
 `;
 
+// 자식 요소까지 적용된 aside요소를 기존 자식요소를 윶한 상태에서 추가
 frame.append(asideEl);
