@@ -20,6 +20,15 @@ frame.innerHTML = tags;
 const asideEl = document.createElement("aside");
 asideEl.classList.add("modal");
 asideEl.innerText = "Modal";
+
+// 이것보단
+// const btnEl = document.createElement("button");
+// btnEl.innerText = "CLOSE";
+// asideEl.append(btnEl);
 // console.dir(asideEl);
+
+asideEl.innerHTML = `
+  <button>CLOSE</button>
+`;
 
 frame.append(asideEl);
